@@ -15,3 +15,7 @@ P
  tests/milestone-tracking.test.ts,8/b/8bcb78d0fd6a1112c2e6d946f463b5e181af5f55
 Q
 !contracts/milestone-tracking.clar,1/3/136339d7b13dd902f9545c17f7451674e76db1a9
+Q
+!contracts/project-management.clar,b/c/bc56a5ed3afeae6040396ef037021ca8e193f5a2
+P
+ tests/project-management.test.ts,d/7/d7ebb6a70d3cd0efe8ec38a2000aa37453e82df9
