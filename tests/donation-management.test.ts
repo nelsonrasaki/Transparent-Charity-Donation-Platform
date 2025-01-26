@@ -1,42 +1,40 @@
 import { describe, it, expect, beforeEach } from "vitest"
 
-describe("donation-management", () => {
+describe("donor-recognition-nft", () => {
   let contract: any
   
   beforeEach(() => {
     contract = {
-      makeDonation: (amount: number, projectId: number) => ({ value: 1 }),
-      getDonation: (donationId: number) => ({
+      mintDonorBadge: (donor: string, level: string, totalDonations: number) => ({ value: 1 }),
+      updateBadgeLevel: (badgeId: number, newLevel: string, newTotalDonations: number) => ({ success: true }),
+      getBadgeInfo: (badgeId: number) => ({
         donor: "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM",
-        amount: 1000,
-        projectId: 1,
-        timestamp: 123456,
+        level: "Gold",
+        totalDonations: 10000,
       }),
-      getDonorTotalDonations: (donor: string) => ({ value: 5000 }),
     }
   })
   
-  describe("make-donation", () => {
-    it("should make a new donation", () => {
-      const result = contract.makeDonation(1000, 1)
+  describe("mint-donor-badge", () => {
+    it("should mint a new donor badge", () => {
+      const result = contract.mintDonorBadge("ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM", "Silver", 5000)
       expect(result.value).toBe(1)
     })
   })
   
-  describe("get-donation", () => {
-    it("should return donation information", () => {
-      const result = contract.getDonation(1)
-      expect(result.donor).toBe("ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM")
-      expect(result.amount).toBe(1000)
-      expect(result.projectId).toBe(1)
-      expect(result.timestamp).toBe(123456)
+  describe("update-badge-level", () => {
+    it("should update badge level and total donations", () => {
+      const result = contract.updateBadgeLevel(1, "Gold", 10000)
+      expect(result.success).toBe(true)
     })
   })
   
-  describe("get-donor-total-donations", () => {
-    it("should return total donations for a donor", () => {
-      const result = contract.getDonorTotalDonations("ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM")
-      expect(result.value).toBe(5000)
+  describe("get-badge-info", () => {
+    it("should return badge information", () => {
+      const result = contract.getBadgeInfo(1)
+      expect(result.donor).toBe("ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM")
+      expect(result.level).toBe("Gold")
+      expect(result.totalDonations).toBe(10000)
     })
   })
 })
