@@ -14,6 +14,11 @@ epoch = 2.5
 path = 'contracts/donor-recognition-nft.clar'
 clarity_version = 2
 epoch = 2.5
+
+[contracts.fund-allocation]
+path = 'contracts/fund-allocation.clar'
+clarity_version = 2
+epoch = 2.5
 [repl.analysis]
 passes = ['check_checker']
 
